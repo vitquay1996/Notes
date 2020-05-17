@@ -15,7 +15,7 @@ nmap -T4 -p- -A 192.168.4.4
 - masscan
 
 ### nikto
-Nikto can be detected by good security and can be blocked
+Nikto to scan web server. Nikto can be detected by good security and can be blocked
 ```
 nikto -h 192.168.4.4
 ```
