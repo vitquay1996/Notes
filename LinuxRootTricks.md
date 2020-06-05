@@ -1,4 +1,4 @@
-Tricks to play after running sudo -l
+Tricks to play after running `sudo -l`
 https://gtfobins.github.io/
 
 ## Chown
