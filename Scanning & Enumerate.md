@@ -35,6 +35,19 @@ smbclient -L \\\\192.168.4.4\\
 smbclient \\\\192.168.4.4\\ADMIN$
 ```
 
+### smbmap
+```
+smbmap -H 10.10.10.100
+smbmap -R folder -H 10.10.10.100
+smbmap -R folder -H 10.10.10.100 -A Groups.xml -q
+smbmap -d domain -u user -p password -H 10.10.10.100
+```
+
+### GetADUsers.py
+```
+GetADUsers.py -all -user username -dc-ip 10.10.10.100
+```
+
 ## DNS
 Reverse DNS lookup
 ```
