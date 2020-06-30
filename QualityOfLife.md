@@ -18,3 +18,8 @@ export TERM=xterm
 ping 10.10.10.10
 tcpdump -i tun0 icmp 
 ```
+
+## Allow arrow keys
+```
+rlwrap nc 10.10.10.10 123
+```
