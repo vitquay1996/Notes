@@ -48,6 +48,13 @@ smbmap -d domain -u user -p password -H 10.10.10.100
 GetADUsers.py -all -user username -dc-ip 10.10.10.100
 ```
 
+### LDAP
+```
+nmap -n -sV --script "ldap* and not brute" <IP>
+ldapsearch -x -h 10.10.10.119 -s base namingcontexts
+ldapsearch -x -h 10.10.10.119 -b 'dc=lightweight,dc=htb'
+```
+
 ## DNS
 Reverse DNS lookup
 ```
