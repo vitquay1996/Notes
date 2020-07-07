@@ -1,5 +1,7 @@
 ### Read file
-```Get-Content "C:\Users\"```
+```
+Get-Content "C:\Users\"
+```
 
 ### Base64 encode
 ```
