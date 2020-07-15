@@ -64,4 +64,7 @@ dig -x 8.8.8.8
 Zone tranfer
 ```
 dig axfr cronos.htb @10.10.10.13
+host -l megarop.com ns1.megarop.com
+dnsrecon -d megarop.com -t axfr
+dnsenum megarop.com
 ```
