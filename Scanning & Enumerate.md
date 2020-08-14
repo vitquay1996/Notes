@@ -10,6 +10,10 @@ Basic scan all
 ```
 nmap -T4 -p- -A 192.168.4.4
 ```
+http
+```
+nmap -sT -Pn -sV -p 80 "--script=banner,(http* or ssl*) and not (brute or broadcast or dos or external or http-slowloris* or fuzzer)" 10.1.1.27
+```
 
 ### nmap alternatives
 - msf scanner/portscan/syn
