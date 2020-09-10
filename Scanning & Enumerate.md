@@ -10,33 +10,71 @@ Basic scan all
 ```
 nmap -T4 -p- -A 192.168.4.4
 ```
-http
-```
-nmap -sT -Pn -sV -p 80 "--script=banner,(http* or ssl*) and not (brute or broadcast or dos or external or http-slowloris* or fuzzer)" 10.1.1.27
-```
 
 ### nmap alternatives
 - msf scanner/portscan/syn
 - masscan
 
-## Web
-
-### nikto
-Nikto to scan web server. Nikto can be detected by good security and can be blocked
+## 21 - FTP
+How to use passive
 ```
+USER asdf
+PASS asdf
+PASV
+RETR /path/to/file
+nc 10.11.1.111 12 > file.txt
+```
+
+## 25,465,587 - SMTP
+Get banner and users
+```
+nc -vn 10.11.1.111 25
+HELO x
+MAIL FROM:test@test.com
+RCPT TO:admin
+VRFY root
+EXPN root
+```
+
+## 110,995 - POP3
+Get banner and mail
+```
+nc -nv 10.11.1.111 110
+USER
+PASS
+LIST
+RETR n
+```
+
+## 80,443 - Web
+```
+nmap -vv --reason -Pn -sV -p 80 "--script=banner,(http* or ssl*) and not (brute or broadcast or dos or external or http-slowloris* or fuzzer)" 10.11.1.111
+gobuster dir -u http://10.11.1.35 -x php -t 100 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt 
 nikto -h 192.168.4.4
 ```
+Try robots.txt
+Read source, including javascript
+```
+droopescan scan drupal -u http://example.org/ -t 32
+```
 
-## SMB
+## 139,445 - SMB
 
-### MSF (scanner/smb/smb_version)
-Give SMB version
+### Obtain information
+```
+enum4linux -a [-u "<username>" -p "<passwd>"] 10.11.1.111
+nmap --script "safe or smb-enum-*" -p 445 10.11.1.111
+nmap --script vuln -p 445 10.11.1.111
+rpcclient -U "" -N 10.11.1.1.11
+rpcclient -U "username" [--pw-nt-hash] 10.11.111 #ask for hash
+```
 
 ### smbclient
 Try to connect
 ```
 smbclient -L \\\\192.168.4.4\\
 smbclient \\\\192.168.4.4\\ADMIN$
+smbclient -U 'username[%passwd]' -L [--pw-nt-hash] //<IP>
 ```
 
 ### smbmap
@@ -73,3 +111,10 @@ dnsrecon -d megarop.com -t axfr
 dnsenum megarop.com
 dnsenum –f <file> -r <url> --dnsserver 10.10.10.10
 ```
+
+## 2049 - NFS
+```
+sudo showmount -e 10.11.1.111
+mount -t nfs [-o vers=2] <ip>:<remote_folder> <local_folder> -o nolock
+```
+https://www.pentestpartners.com/security-blog/using-nfsshell-to-compromise-older-environments/
