@@ -3,11 +3,6 @@
 ```
 run post/multi/recon/local_exploit_suggester
 ```
-### Get Powershell
-```
-load powershell
-powershell_shell
-```
 ### Port forward
 ```
 portfw add -l 455 -p 455 -r 127.0.0.1
