@@ -24,7 +24,10 @@ PASV
 RETR /path/to/file
 nc 10.11.1.111 12 > file.txt
 ```
-
+Download all
+```
+wget --mirror 'ftp://user:password@server'
+```
 ## 25,465,587 - SMTP
 Get banner and users
 ```
