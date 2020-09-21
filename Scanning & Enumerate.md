@@ -14,6 +14,9 @@ nmap -T4 -p- -A 192.168.4.4
 ### nmap alternatives
 - msf scanner/portscan/syn
 - masscan
+```
+masscan 10.11.0.0 -p0-65535 ––rate 1000000
+```
 
 ## 21 - FTP
 How to use passive
