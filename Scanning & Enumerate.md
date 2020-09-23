@@ -52,6 +52,11 @@ LIST
 RETR n
 ```
 
+## 135 -RPC
+```
+rpcdump.py -p 135 10.10.10.182
+```
+
 ## 80,443 - Web
 ```
 nmap -vv --reason -Pn -sV -p 80 "--script=banner,(http* or ssl*) and not (brute or broadcast or dos or external or http-slowloris* or fuzzer)" 10.11.1.111
