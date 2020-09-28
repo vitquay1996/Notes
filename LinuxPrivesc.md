@@ -50,7 +50,13 @@ sudo /sbin/service ../../../bin/bash
 
 ## Some common exploit
 
-### Docker
+### Disk Group
+```
+mount
+debugfs /dev/sda1
+```
+
+### Docker Group
 How to spot
 ```
 lse check user in docker group
