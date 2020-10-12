@@ -9,4 +9,7 @@ Use app.neilpatel.com
 fierce -dns nic.cbre -search cbre
 ```
 
-### 
+### Google Dork
+```
+inurl: cbre
+```
