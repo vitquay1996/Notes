@@ -1,3 +1,24 @@
+# Frida guide
+## Cannot hook to swift
+- Identify process and trace function
+```
+frida-ps -U
+frida-trace -U -i "*jail*" DVIA-v2
+```
+- Find the function location in Ghidra and hook
+```
+var targetModule = 'DVIA-v2';
+var addr = ptr(0x1959d8);
+var moduleBase = Module.getBaseAddress(targetModule);
+console.log(moduleBase)
+var targetAddress = moduleBase.add(addr);
+   Interceptor.attach(targetAddress, {
+        onEnter: function(args) {
+            this.context.x8 = 0x0
+        },
+    });
+```
+
 # Local Data Storage
 ## UserDefaults
 ```
