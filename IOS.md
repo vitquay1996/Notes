@@ -63,3 +63,19 @@ cat /var/mobile/Library/Keyboard/en-dynamic.lm/dynamic-lexicon.dat
 ```
 Use Grapefruit
 ```
+# IPC
+## Url Scheme
+- Static Testing: Search for 
+```
+application:didFinishLaunchingWithOptions:
+application:will-FinishLaunchingWithOptions:
+application:openURL:options:
+```
+- Dynamic Testing: Use Frida script
+```
+function openURL(url) {
+    var UIApplication = ObjC.classes.UIApplication.sharedApplication();
+    var toOpen = ObjC.classes.NSURL.URLWithString_(url);
+    return UIApplication.openURL_(toOpen);
+}
+```
