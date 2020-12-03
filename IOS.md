@@ -28,7 +28,30 @@ cat /var/mobile/Containers/Data/Application/E825E63E-0E34-4EC1-9A96-186FD2598564
 ```
 cat /var/mobile/Containers/Data/Application/E825E63E-0E34-4EC1-9A96-186FD2598564/Documents/userInfo.plist
 ```
-
+## Keychain
+```
+Use Frida keychain dump script
+```
+## Core Data
+```
+/Library/Application\ Support
+```
+## Caches
+```
+/Libray/Caches
+```
+## Realm
+```
+/Document
+```
+## Couchbase
+```
+sqlite3 /var/mobile/Containers/Data/Application/E825E63E-0E34-4EC1-9A96-186FD2598564/Library/Application Support/CouchbaseLite/dvcouchbasedb.cblite2/db.sqlite3
+```
+## Yap
+```
+/Library/Application\ Support
+```
 # Side Channel Data Leakage
 ## Pasteboard
 - Use Frida script
